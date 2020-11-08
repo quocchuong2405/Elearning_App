@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="/layout/default">
+<head>
+<title>Add role</title>
+</head>
+
+<body>
+
+	<!-- Main-body start -->
+	<section id="admin-content" class="p-3" layout:fragment="noidung">
+		<div class="main-body">
+			<div class="page-body">
+				<div class="row">
+					<div class="col-md-12 mb-2">
+						<div class="page-header-breadcrumb">
+							<ul class="breadcrumb-title">
+								<li class="breadcrumb-item"><a th:href="@{/homeQL}"> <i
+										class="feather icon-home"></i> Trang chủ
+								</a></li>
+								<li class="breadcrumb-item"><a th:href="@{/role}">Quyền</a>
+								</li>
+								<li class="breadcrumb-item"><a th:href="@{/role/add}">Thêm mới quyền</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="card">
+							<div class="card-header">
+								<h2 class="text-uppercase text-center">Thêm mới quyền</h2>
+								<!--  Thông báo lỗi -->
+								<p th:text="${message}"></p>  
+							</div>
+							<div class="card-block">
+
+
+
+								<form th:action="@{/role/add}" th:object="${role}" method="post">
+									<div class="row">
+										<div class="col-md-6 m-auto">
+											<div class="form-group">
+												<label>Tên quyền</label> 
+												<input type="text" th:field="*{name}" class="form-control" />
+												<span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+											</div>
+											<div class="form-group">
+												<label>Mô tả</label> 
+												<input type="text" th:field="*{description}" id="desc" class="form-control" />
+												<span class="text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+											</div>
+											<div class="form-group mt-3">
+												<button type="submit" class="btn btn-primary m-b-0">Lưu lại</button>
+												<a th:href="@{/role}" class="btn btn-secondary text-white">Quay lại</a>
+											</div>
+										</div>
+									</div>		
+								</form>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<!--		<script>
+        function addRole() {
+            // Lấy thông tin từ form
+            let name = document.getElementById('name').value;
+            let desc = document.getElementById('desc').value;
+            // Gọi api để thêm mới 
+            axios({
+                url: 'http://localhost:8080/finalproject/api/role',
+                method: 'POST',
+                data: {
+                    "id": "",
+                    "name": name,
+                    "description": desc
+                }
+            })
+            .then(function (response) { // Xử lý response trả về
+                console.log(response);
+                swal("Thông báo!", "Thêm mới thành công!", "success");
+                window.location.href = '/role-index.html';
+            })
+            .catch(function (error) { // Xử lý error trả về
+                console.log(error);
+                swal("Thông báo!", "Thêm mới thất bại!", "error");
+            })
+        }
+    </script>   -->
+    
+	</section>
+</body>
+</html>

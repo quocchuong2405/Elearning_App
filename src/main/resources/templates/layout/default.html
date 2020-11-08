@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en">
+
+<head>
+    <title>Trang chủ</title>
+    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 10]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon" />
+    <!-- Google font-->
+    <link th:href="@{https://fonts.googleapis.com/css?family=Open+Sans:400,600}" rel="stylesheet" />
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" th:href="@{/plugins/bootstrap/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/plugins/font-awesome/css/font-awesome.min.css}" />
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" th:href="@{/icon/themify-icons/themify-icons.css}" />
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" th:href="@{/icon/icofont/css/icofont.css}" />
+    <!-- feather Awesome -->
+    <link rel="stylesheet" type="text/css" th:href="@{/icon/feather/css/feather.css}" />
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/jquery.mCustomScrollbar.css}" />
+</head>
+
+
+<body>
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+			
+			 <!-- NAVBAR -->
+            <div th:replace="/fragments/navbarQL"></div>
+            
+            <div class="pcoded-main-container">
+                <div class="pcoded-wrapper">
+                
+                	<!--  SIDEBAR  -->
+                    <div th:replace="/fragments/sidebarQL"></div>
+                     
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                        
+                            <!-- Main-body start -->
+                              <!-- PHAN THAY DOI THEO TUNG TRANG -->
+           					 <section id="admin-content" class="p-3" layout:fragment="noidung"></section>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+    <script type="text/javascript" th:src="@{/plugins/jquery/js/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/plugins/jquery-ui/js/jquery-ui.min.js}"></script>
+    <script type="text/javascript" th:src="@{/plugins/popper.js/js/popper.min.js}"></script>
+    <script type="text/javascript" th:src="@{/plugins/bootstrap/js/bootstrap.min.js}"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" th:src="@{/plugins/jquery-slimscroll/js/jquery.slimscroll.js}"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" th:src="@{/plugins/modernizr/js/modernizr.js}"></script>
+    <script type="text/javascript" th:src="@{/plugins/modernizr/js/css-scrollbars.js}"></script>
+    <script th:src="@{/js/pcoded.min.js}"></script>
+    <script th:src="@{/js/vartical-layout.min.js}"></script>
+    <script th:src="@{/js/jquery.mCustomScrollbar.concat.min.js}"></script>
+    <!-- Custom js -->
+    <script type="text/javascript" th:src="@{/js/script.js}"></script>
+    <script th:src="@{//cdn.ckeditor.com/4.11.4/full/ckeditor.js}"></script>
+    <script th:src="@{http://cdn.ckeditor.com/4.4.7/standard-all/adapters/jquery.js}"></script>
+    <script th:src="@{https://unpkg.com/axios/dist/axios.min.js}"></script>
+    <script th:src="@{https://unpkg.com/sweetalert/dist/sweetalert.min.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="/layout/default">
+<head>
+<title>Add Video</title>
+</head>
+
+<body>
+	<section id="admin-content" class="p-3" layout:fragment="noidung">
+		<!-- Main-body start -->
+		<div class="main-body">
+			<div class="page-body">
+				<div class="row">
+					<div class="col-md-12 mb-2">
+						<div class="page-header-breadcrumb">
+							<ul class="breadcrumb-title">
+								<li class="breadcrumb-item"><a th:href="@{/homeQL}"> <i
+										class="feather icon-home"></i> Trang chủ
+								</a></li>
+								<li class="breadcrumb-item"><a th:href="@{video/add}">Thêm mới video</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="card">
+							<div class="card-header">
+								<h2 class="text-uppercase text-center">Thêm mới video</h2>
+							</div>
+							<div class="card-block">
+								<form th:action="@{/video/add}" th:object="${video}" method="post">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Tiêu đề</label> <input type="text" th:field="*{title}"
+													class="form-control" />
+												<span class="text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+											</div>
+											<div class="form-group">
+												<label>Url</label> <input type="text" th:field="*{url}"
+													class="form-control" />
+												<span class="text-danger" th:if="${#fields.hasErrors('url')}" th:errors="*{url}"></span>
+											</div>
+									<!-- 		<div class="form-group">
+												<label>Hình đại diện</label> 
+												<input type="text" th:field="*{image}"
+													class="form-control" />
+													<span class="text-danger" th:if="${#fields.hasErrors('image')}" th:errors="*{image}"></span>
+											</div>  -->
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Thời lượng (phút)</label> <input type="number"
+													th:field="*{time_count}" class="form-control" />
+												<span class="text-danger" th:if="${#fields.hasErrors('time_count')}" th:errors="*{time_count}"></span>
+											</div>
+											<div class="form-group">
+												<label>Khóa học</label> 
+												<select name="" id=""
+													class="form-control">
+													<option th:each="item : ${courses}"
+															th:value="${item.id}"
+															th:text="${item.title}">Java script căn bản</option>
+										
+												</select>
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group mt-3">
+												<button type="submit" class="btn btn-primary m-b-0">Lưu
+													lại</button>
+												<a th:href="@{/video}"
+													class="btn btn-secondary text-white">Quay lại</a>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</section>
+</body>
+
+</html>
